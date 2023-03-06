@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { AppBar, Box, Button, Container, createTheme, Fab, Stack, ThemeProvider, Toolbar, Typography } from '@mui/material';
+import {  Box, Button, Container, Fab, Stack,  Toolbar, Typography } from '@mui/material';
 import ThemeContext from './ThemeContext';
 const Navbar = () => {
   const navigate = useNavigate();
@@ -9,7 +9,6 @@ const Navbar = () => {
   const Logout = async () => {
     try {
       await axios.delete('http://localhost:5000/logout');
-      // localStorage.removeItem('auth')
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -24,43 +23,8 @@ const Navbar = () => {
   };
   const { darkMode } = useContext(ThemeContext);
 
-  // const [darkMode, setDarkMode] = useState(false);
-  // const darkTheme = createTheme({
-  //   palette: {
-  //     mode: "dark",
-  //     primary: {
-  //       main: "#FFD600",
-  //     },
-  //     secondary: {
-  //       main: "#f48fb1",
-  //     },
-  //   },
-  //   palette: {
-  //     mode: 'light',
-  //     primary: {
-  //       main: "#FFD600",
-  //     },
-  //     secondary: {
-  //       main: "#f48fb1",
-  //     },
-  //   },
-  // });
-  // const theme = createTheme({
-  //   palette: {
-  //     mode: 'light',
-  //     primary: {
-  //       main: "#9dcaf9",
-  //     },
-  //     secondary: {
-  //       main: "#f48fb1",
-  //     },
-  //   },
-  // });
-
   return (
     <ThemeContext.Provider value={{ darkMode }}>
-      {/* <ThemeProvider theme={darkMode ? darkTheme : theme}> */}
-      {/* <AppBar style={{  color:'black' }} position="static"> */}
       <Container
         maxWidth="xl"
         style={{ display: "flex", justifyContent: "space-between" , padding:'10px'}}
@@ -68,7 +32,6 @@ const Navbar = () => {
         <Toolbar disableGutters>
           <Typography
             variant="h6"
-            nowrap={true}
             component="a"
             href="/dashboard"
             sx={{
@@ -105,13 +68,12 @@ const Navbar = () => {
               gap:'10px'
             }}
           >
-
             <Fab
               variant="extended"
               size="medium"
+              color='warning'
               aria-label="add"
               onClick={onDownload}
-              style={{background:'#FFD600'}}
             >
               <img src="/moai.png" width={50} alt="" />
               Launcher
@@ -134,8 +96,6 @@ const Navbar = () => {
           </Box>
         </Toolbar>
       </Container>
-      {/* </AppBar> */}
-      {/* </ThemeProvider> */}
     </ThemeContext.Provider>
   )
 }

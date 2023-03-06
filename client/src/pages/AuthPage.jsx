@@ -31,17 +31,14 @@ const onDownload = () => {
 };
 
 const AuthPage = () => {
-
-
   const [msg, setMsg] = useState("");
   const [darkMode, setDarkMode] = useState(false);
   const [newUser, setNewUser] = useState(true);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
   const creator = "http://localhost:5000/users";
   const loginator = "http://localhost:5000/login";
-
 
   const {
     control,
@@ -54,7 +51,6 @@ const AuthPage = () => {
       email: "",
     },
   });
-
 
   const darkTheme = createTheme({
     palette: {
@@ -76,14 +72,9 @@ const AuthPage = () => {
       },
       secondary: {
         main: "#ef6c00",
-        contrastText: "#ffcc00",
       },
     },
   });
-
-
-
-
 
   const onSubmit = async (formData, e) => {
     e.preventDefault();
@@ -209,9 +200,7 @@ const AuthPage = () => {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              {/* <LockOutlinedIcon /> */}
-            </Avatar>
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
             <img
               style={
                 darkMode

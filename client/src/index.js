@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "bulma/css/bulma.css";
 import axios from "axios";
+import './index.css'
 import Router from './Router';
 import { BrowserRouter } from 'react-router-dom';
 
